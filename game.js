@@ -11,11 +11,6 @@ let getComputerChoice = () => {
   }
 };
 
-let playersChoice = prompt("What's your choice?");
-let playerSelection = playersChoice.toLowerCase();
-
-let computerSelection = getComputerChoice();
-
 let playRound = (playerSelection, computerSelection) => {
   if (playerSelection === computerSelection) {
     return "even";
@@ -30,5 +25,24 @@ let playRound = (playerSelection, computerSelection) => {
   }
 };
 
-alert(computerSelection);
-alert(playRound(playerSelection, computerSelection));
+let game = () => {
+  let count = 0;
+  for (let i = 0; i < 5; i++) {
+    let playersChoice = prompt("What's your choice?");
+    let playerSelection = playersChoice.toLowerCase();
+
+    let computerSelection = getComputerChoice();
+
+    let result = playRound(playerSelection, computerSelection);
+
+    alert(computerSelection);
+    alert(playRound(playerSelection, computerSelection));
+
+    if (result == "you won!") {
+      count++;
+    }
+  }
+  alert("you won " + count + " times!");
+};
+
+game();
